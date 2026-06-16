@@ -1,0 +1,149 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+}
+
+:root {
+  --background: #001030;
+  --foreground: #ffffff;
+  --card: #001a4d;
+  --border: rgba(255, 255, 255, 0.1);
+  --primary: #00205c;
+  --secondary: #ffc629;
+
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Official ACS Hex Colors */
+  --acs-blue: #00205c;
+  --acs-red: #ce0e2d;
+  --acs-gold: #ffc629;
+
+  /* EFG Official Colors */
+  --efg-beige: #eed5c1;
+  --efg-grey-olive: #8a905b;
+  --efg-grey-blue: #627f9c;
+
+  /* Darker shades for text readability */
+  --acs-blue-dark: #001030;
+  --acs-red-dark: #8b0015;
+  --acs-gold-dark: #916b00;
+
+  /* Botanical Greens */
+  --leaf-green: #2d5a27;
+  --emerald-green: #10b981;
+  --mint-green: #ecfdf5;
+  --forest-green: #1b4332;
+  --moss-green: #4f772d;
+  --sage-green: #90a955;
+}
+
+.triangle-bg {
+  background-color: var(--background);
+  background-image:
+    conic-gradient(from 150deg at 50% 33%, var(--acs-gold) 15deg, transparent 0),
+    conic-gradient(from 30deg at 50% 66%, var(--acs-red) 15deg, transparent 0),
+    linear-gradient(to bottom, rgba(0, 32, 92, 0.4) 0%, var(--acs-blue-dark) 100%);
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.3);
+}
+
+.liquid-glass-beige {
+  background: rgba(238, 213, 193, 0.25);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(238, 213, 193, 0.4);
+}
+
+.liquid-glass-olive {
+  background: rgba(138, 144, 91, 0.25);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(138, 144, 91, 0.4);
+}
+
+.liquid-glass-gold {
+  background: rgba(255, 198, 41, 0.25);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 198, 41, 0.4);
+}
+
+.liquid-glass-blue {
+  background: rgba(98, 127, 156, 0.25);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(98, 127, 156, 0.4);
+}
+
+.liquid-glass-dark {
+  background: rgba(0, 10, 48, 0.85);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+}
+
+.shield-badge {
+  position: relative;
+  width: 100px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+
+.shield-badge::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background-color: transparent;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
+  border: 2px solid var(--acs-gold);
+  z-index: 1;
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite;
+}
